@@ -2,73 +2,105 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>Wahama Base</title>
+<title>和浜駐屯地</title>
 
 <style>
 
 body{
 margin:0;
-font-family:Arial;
-background:#0f0f0f;
+font-family:Segoe UI,Arial;
+background:#0b1117;
 color:white;
-text-align:center;
 }
 
 header{
-background:#1a1a1a;
-padding:30px;
-font-size:40px;
-font-weight:bold;
+text-align:center;
+padding:40px;
+background:linear-gradient(90deg,#0b1117,#1b2735);
+border-bottom:2px solid #1f3a52;
+}
+
+header h1{
+font-size:48px;
+margin:0;
+letter-spacing:4px;
+}
+
+header h2{
+font-size:18px;
+color:#9fb4c9;
+margin-top:10px;
 }
 
 nav{
-background:#111;
+text-align:center;
 padding:15px;
+background:#0f1620;
 }
 
 nav a{
-color:white;
-margin:15px;
+color:#9fb4c9;
+margin:20px;
 text-decoration:none;
-font-size:18px;
+font-size:16px;
 }
 
 nav a:hover{
-color:#00aaff;
+color:#00c8ff;
 }
 
 .container{
-padding:50px;
+max-width:1000px;
+margin:auto;
+padding:40px;
+}
+
+.card{
+background:#121a24;
+padding:30px;
+border-radius:10px;
+margin-bottom:25px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
+
+.card h2{
+margin-top:0;
+color:#00c8ff;
 }
 
 .button{
 display:inline-block;
-padding:15px 30px;
-margin:10px;
-background:#00aaff;
-color:white;
+background:#00c8ff;
+color:black;
+padding:12px 25px;
+border-radius:6px;
+font-weight:bold;
 text-decoration:none;
-border-radius:8px;
-font-size:18px;
 }
 
 .button:hover{
-background:#0088cc;
+background:#00a6d1;
 }
 
-.card{
-background:#1a1a1a;
-padding:30px;
-margin:20px auto;
-width:300px;
-border-radius:10px;
+.status{
+font-size:20px;
+font-weight:bold;
+}
+
+.online{
+color:#00ff9d;
+}
+
+.offline{
+color:#ff4a4a;
 }
 
 footer{
-background:#111;
+text-align:center;
 padding:20px;
-margin-top:50px;
-font-size:14px;
+background:#0f1620;
+margin-top:40px;
+color:#7f8fa3;
 }
 
 </style>
@@ -77,38 +109,104 @@ font-size:14px;
 <body>
 
 <header>
-WAHAMA BASE
+<h1>和浜駐屯地</h1>
+<h2>中部方面隊第23師団</h2>
 </header>
 
 <nav>
-<a href="#">ホーム</a>
-<a href="#">ゲーム</a>
-<a href="#">メンバー</a>
-<a href="#">参加</a>
+<a href="#message">入隊案内</a>
+<a href="#game">ゲーム</a>
+<a href="#exam">試験</a>
+<a href="#events">イベント</a>
+<a href="#server">サーバー状態</a>
 </nav>
 
 <div class="container">
 
-<h1>Roblox チームサイト</h1>
-<p>ここは Wahama Base の公式サイト</p>
+<div class="card" id="message">
 
-<a class="button" href="https://www.roblox.com/">Robloxで遊ぶ</a>
+<h2>職員から入隊希望者へのメッセージ</h2>
 
-<div class="card">
-<h2>ゲーム</h2>
-<p>おすすめゲーム紹介</p>
+<p>
+和浜駐屯地へようこそ。  
+本組織では協力・規律・責任を重視しています。  
+入隊を希望する者は訓練と試験を通過し、隊員としての資質を証明してください。  
+優秀な志願者の参加を期待しています。
+</p>
+
 </div>
 
-<div class="card">
-<h2>メンバー募集</h2>
-<p>参加したい人は連絡してください</p>
+<div class="card" id="game">
+
+<h2>作戦サーバー</h2>
+
+<p>以下のリンクから基地サーバーへ参加できます。</p>
+
+<a class="button" href="https://www.roblox.com/ja/games/73205683924540/4-10" target="_blank">
+Robloxゲームに参加
+</a>
+
+</div>
+
+<div class="card" id="exam">
+
+<h2>次回試験日</h2>
+
+<p id="examDate">2026年4月15日</p>
+
+</div>
+
+<div class="card" id="events">
+
+<h2>イベント</h2>
+
+<ul>
+<li>新人訓練プログラム</li>
+<li>戦術訓練イベント</li>
+<li>基地防衛演習</li>
+</ul>
+
+</div>
+
+<div class="card" id="server">
+
+<h2>サーバー状態</h2>
+
+<p id="serverStatus" class="status">確認中...</p>
+
 </div>
 
 </div>
 
 <footer>
-© Wahama Base
+© 和浜駐屯地 Command System
 </footer>
+
+<script>
+
+function updateServerStatus(){
+
+let status=document.getElementById("serverStatus");
+
+let online=Math.random()>0.3;
+
+if(online){
+
+status.innerHTML="● ONLINE";
+status.className="status online";
+
+}else{
+
+status.innerHTML="● OFFLINE";
+status.className="status offline";
+
+}
+
+}
+
+updateServerStatus();
+
+</script>
 
 </body>
 </html>
